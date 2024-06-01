@@ -1,0 +1,322 @@
+using System;
+
+namespace CP
+{
+    // Requirements, Assignment/Implementation Rules:
+    //  You must work with 16 bits, hint: Use an int array of 16 as a field
+    //  Binary operators: ~, <<, >>
+    //  Binary, Arithmatic, and Logical operators: +, -, *, /, ==, !=, <, >, <=, >= algorithms
+    //      must perform in binary. Algorthims that convert to denary, perform in denary, and convert
+    //      back to binary carry 0 marks.
+
+    class Binary
+    {
+        #region(Fields)
+        int j;
+        int[] array = new int[16];
+
+
+        #endregion
+        #region(Properties)
+
+        public int[] Array
+        {
+            get
+            {
+                return array;
+            }
+
+            set
+            {
+                this.array = value;
+            }
+        }
+        public int J
+        {
+            get
+            {
+                return j;
+            }
+            set
+            {
+                this.j = value;
+            }
+        }
+        #endregion
+        #region Constructors
+
+        public Binary()
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                this.array[i] = 0;
+
+            }
+        }
+
+        #endregion
+        #region(Index operator)
+        #endregion
+        #region(Implicit Convertors: int to Binary, Binary to int)
+        public static implicit operator Binary(int a)
+        {
+            var b = new Binary();
+            var b2 = new Binary();
+
+
+            int rem = a;
+            int whole = a;
+
+
+            int j = 0;
+            do
+            {
+                rem = rem % 2;
+                whole = whole / 2;
+                b.Array[j] = rem;
+                j++;
+                rem = whole;
+            } while (whole > 0);
+
+
+
+            for (int i = 15; i >= 0; i--)
+            {
+                b2.Array[15 - i] = b.Array[i];
+                //m = x1.Array[i];
+            }
+
+            //return b.Array[16];
+            return b2;
+        }
+        public static implicit operator int(Binary b)
+        {
+
+            string numString = "1010"; //Convert.ToString(b);
+            int[] numInt = new int[16];
+            int index = 0;
+            int total = 0;
+            int[] array = new int[16];
+            string[] numS = new string[16];
+            foreach (char c in numString)
+            {
+
+                string num = Convert.ToString(c);
+                int number = int.Parse(num);
+                numInt[index] = number;
+                total = total + number;
+
+                //Console.WriteLine($" character: {c}, counter :{index}, int character inside array: {number}, number inside array {total}");
+
+                array[index] = number;
+
+                index++;
+            }
+
+            int denary = 0;
+            int i = 0;
+            for (int j = (index - 1); j >= 0; j--)
+            {
+                int powTotal = 1;
+
+                for (int k = 0; i > k; k++)
+                {
+                    powTotal = powTotal * 2;
+                }
+                i++;
+                //array[j] = array[j] * powTotal;
+                denary = denary + (array[j] * powTotal);
+
+            }
+            //Console.WriteLine(denary);
+
+            return denary;
+        }
+        #endregion
+        #region(Methods: ToDecimal, ToString)
+        public int ToDecimal()
+        {
+            //Binary f = new Binary();
+            int index = 16;
+            int denary = 0;
+            int i = 0;
+            for (int j = (index - 1); j >= 0; j--)
+            {
+                int powTotal = 1;
+
+                for (int k = 0; i > k; k++)
+                {
+                    powTotal = powTotal * 2;
+                }
+                i++;
+                denary = denary + (Array[j] * powTotal);
+
+            }
+            return denary;
+            //int toDecimal = 0;
+            //return toDecimal;
+        }
+
+        public override string ToString()
+        {
+
+            string s = "";
+            int counter = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    s = s + Convert.ToString((this.Array[counter]));
+
+                    counter++;
+                }
+                s = s + " ";
+            }
+
+
+            //string s = "";
+            //int counter = 15;
+            //for (int i = 4; i > 0; i--)
+            //{
+            //    for (int j = 4; j > 0; j--)
+            //    {
+            //        s = s + Convert.ToString((this.Array[counter]));
+
+            //        counter--;
+            //    }
+            //    s = s + " ";
+            //}
+            return s;
+        }
+        #endregion
+        #region(Shift Opertors: Shift to left by n (<<), Shift to right by n (>>))
+        public static Binary operator <<(Binary y, int n)
+        {
+            Binary x1 = new Binary();
+            Binary x2 = new Binary();
+
+            x1 = y;
+            for (int shift = 0; shift <= 15; shift++)
+            {
+                if ((shift - n) < 0 || shift > 15)
+                { x2.Array[shift] = 0; }
+                else if ((shift - n) <= 15)
+                { x2.Array[shift - n] = x1.Array[shift]; }
+            }
+            return x2;
+        }
+        public static Binary operator >>(Binary z, int n)
+        {
+            Binary x3 = new Binary();
+            int newN = -n;
+            x3 = z << newN;
+
+            return x3;
+        }
+
+
+        #endregion
+        public static int check(int i)
+        {
+            if (i == 0)
+            {
+                i = 1;
+            }
+            else if (i == 1)
+                i = 0;
+            return i;
+
+        }
+        #region(Binary Operators: Ones' complement, Negation)
+        public static Binary operator ~(Binary a)
+        {
+            if (a.j == 1) return a;
+            Binary b = new Binary();
+            Binary c = new Binary();
+            b = a;
+            for (int i = 0; i <= 15; i++)
+            {
+                b.Array[i] = check(b.Array[i]);
+                a.j = 1;
+            }
+
+            return b;
+        }
+        public static Binary operator --(Binary a)
+        {
+            Binary c = new Binary();
+            c = (a + (1));
+            return c;
+        }
+        #endregion
+        #region(Binary Arithmatic Opertors: +, -, *, /)
+        public static Binary operator +(Binary d, Binary f)
+        {
+            Binary a = new Binary();
+            Binary b = new Binary();
+            // Binary c = new Binary();
+            b = d;
+            //c = f;
+            int total = 0;
+            int rem = 0;
+            int convToInt1 = 0;
+            int convToInt2 = 0;
+            int j = 15;
+            while (j >= 0)
+            {
+                // a.Array[i] = d.Array[i] + f.Array[i] + rem;
+                convToInt1 = d.Array[j];
+                convToInt2 = f.Array[j];
+                total = convToInt1 + convToInt2 + rem;
+                if (total == 0)
+                {
+                    rem = 0;
+                    a.Array[j] = 0;
+                }
+                else if (total == 1)
+                {
+                    rem = 0;
+                    a.Array[j] = 1;
+                }
+                else if (total == 2)
+                {
+                    rem = 1;
+                    a.Array[j] = 0;
+                }
+                else if (total == 3)
+                {
+                    rem = 1;
+                    a.Array[j] = 1;
+                }
+                else if (j == 0)
+                {
+                    return a;
+                }
+                j = j - 1;
+            }
+            return a;
+        }
+        public static Binary operator -(Binary d, Binary f)
+        {
+            Binary a = new Binary();
+
+            return a;
+        }
+        public static Binary operator *(Binary d, Binary f)
+        {
+            Binary a = new Binary();
+
+            return a;
+        }
+        public static Binary operator /(Binary d, Binary f)
+        {
+            Binary a = new Binary();
+
+            return a;
+        }
+        #endregion
+        #region(Logical Operators: ==, !=, <, >, <=, >=)
+        #endregion
+
+    }
+}
