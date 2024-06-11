@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "To/RtQ0MuJx7v/aKXdK7WPs8aJo1PQvtIXbrkRoNaXEFa0ZtgSpje2Zn1pAdvHx3Tnbmiz7u3G6feVZ0Toi9/Q==",
+  "dgSpecHash": "kGC7VpfvCWlORpjjru5rFoIbAonrK5CgzAcb0XDaq5J2kZEqMzlk8GHGmvWQWBiIGexWN+JbBB0KopiHyTfGag==",
   "success": true,
-  "projectFilePath": "H:\\My Drive\\C2034922 Backup\\First Semester\\CP\\Binary Group Work\\Binary\\Binary.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/abdulsalamibrahim/workspace/iot/binary-Counter-Calculator/Binary/Binary.csproj",
+  "expectedPackageFiles": [
+    "/Users/abdulsalamibrahim/.nuget/packages/microsoft.netcore.app.ref/6.0.11/microsoft.netcore.app.ref.6.0.11.nupkg.sha512",
+    "/Users/abdulsalamibrahim/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.11/microsoft.aspnetcore.app.ref.6.0.11.nupkg.sha512",
+    "/Users/abdulsalamibrahim/.nuget/packages/microsoft.netcore.app.host.osx-x64/6.0.11/microsoft.netcore.app.host.osx-x64.6.0.11.nupkg.sha512"
+  ],
   "logs": []
 }

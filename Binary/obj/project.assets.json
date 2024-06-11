@@ -8,26 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\iskle\\.nuget\\packages\\": {}
+    "/Users/abdulsalamibrahim/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\My Drive\\C2034922 Backup\\First Semester\\CP\\Binary Group Work\\Binary\\Binary.csproj",
+      "projectUniqueName": "/Users/abdulsalamibrahim/workspace/iot/binary-Counter-Calculator/Binary/Binary.csproj",
       "projectName": "Binary",
-      "projectPath": "H:\\My Drive\\C2034922 Backup\\First Semester\\CP\\Binary Group Work\\Binary\\Binary.csproj",
-      "packagesPath": "C:\\Users\\iskle\\.nuget\\packages\\",
-      "outputPath": "H:\\My Drive\\C2034922 Backup\\First Semester\\CP\\Binary Group Work\\Binary\\obj\\",
+      "projectPath": "/Users/abdulsalamibrahim/workspace/iot/binary-Counter-Calculator/Binary/Binary.csproj",
+      "packagesPath": "/Users/abdulsalamibrahim/.nuget/packages/",
+      "outputPath": "/Users/abdulsalamibrahim/workspace/iot/binary-Counter-Calculator/Binary/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\iskle\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/abdulsalamibrahim/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -56,12 +54,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.11, 6.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-x64",
+            "version": "[6.0.11, 6.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.11, 6.0.11]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/abdulsalamibrahim/.vscode-dotnet-sdk/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
